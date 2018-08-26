@@ -1,16 +1,28 @@
 package com.coinxu.maven;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 
 /**
  * Hello world!
  */
 public class HelloWorld extends HttpServlet {
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
-        resp.getWriter().write("Hello world");
+
+    private String message;
+
+    public void init() throws ServletException {
+        message = "Hello World";
+    }
+
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        resp.setContentType("text/html");
+        PrintWriter out = resp.getWriter();
+        out.println("<h1>" + message + "</h1>");
     }
 }

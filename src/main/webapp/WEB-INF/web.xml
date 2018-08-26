@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <display-name>Archetype Created Web Application</display-name>
+  <description>Tomcat and Maven Demo</description>
+  <icon>
+    <small-icon>resources/images/icon.jpg</small-icon>
+    <large-icon>resources/images/icon.jpg</large-icon>
+  </icon>
+  <context-param>
+    <param-name>namespace</param-name>
+    <param-value>tm</param-value>
+  </context-param>
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+
+  <filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <servlet>
+    <servlet-name>home</servlet-name>
+    <servlet-class>com.coinxu.maven.HelloWorld</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>home</servlet-name>
+    <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+
+  <mime-mapping>
+    <extension>xls</extension>
+    <mime-type>application/vnd.ms-excel</mime-type>
+  </mime-mapping>
+</web-app>
